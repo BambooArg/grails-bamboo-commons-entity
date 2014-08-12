@@ -4,17 +4,17 @@ import ar.com.bamboo.framework.domains.BaseEntity
 
 class Person extends BaseEntity{
 
-    String nombre
-    String apellido
-    String telefonoFijo
-    String telefonoCelular
+    String firstName
+    String lastName
+    String phone
+    String phoneMobile
     String email
 
     static constraints = {
-        nombre blank: true, nullable: true
-        apellido blank: true, nullable: true
-        telefonoFijo blank: true, nullable: true
-        telefonoCelular blank: true, nullable: true
+        firstName blank: true, nullable: true
+        lastName blank: true, nullable: true
+        phone blank: true, nullable: true
+        phoneMobile blank: true, nullable: true
         email blank: true, nullable: true, email: true
     }
 
