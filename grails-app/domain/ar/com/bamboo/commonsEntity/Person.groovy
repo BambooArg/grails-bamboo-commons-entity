@@ -1,6 +1,8 @@
 package ar.com.bamboo.commonsEntity
 
-class Person {
+import ar.com.bamboo.framework.domains.BaseEntity
+
+class Person extends BaseEntity{
 
     String nombre
     String apellido
@@ -14,5 +16,10 @@ class Person {
         telefonoFijo blank: true, nullable: true
         telefonoCelular blank: true, nullable: true
         email blank: true, nullable: true, email: true
+    }
+
+    @Override
+    protected void executeMoreBeforeInsert() {
+
     }
 }
