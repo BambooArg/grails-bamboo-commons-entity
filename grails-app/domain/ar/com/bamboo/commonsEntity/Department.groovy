@@ -2,10 +2,10 @@ package ar.com.bamboo.commonsEntity
 
 import ar.com.bamboo.framework.domains.BaseEntity
 
-class City extends BaseEntity{
+class Department extends BaseEntity{
 
     String name
-    Department department
+    Province province
 
     static constraints = {
         name blank: false
