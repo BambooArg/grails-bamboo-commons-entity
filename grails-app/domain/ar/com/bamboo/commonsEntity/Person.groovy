@@ -22,4 +22,19 @@ class Person extends BaseEntity{
     protected void executeMoreBeforeInsert() {
 
     }
+
+    public String toString(){
+        String output = firstName
+        if (output){
+            output += " "
+        }
+        output += lastName
+
+        if (output){
+            output += " - "
+        }
+
+        output += email
+        return output
+    }
 }
