@@ -12,6 +12,14 @@ import spock.lang.Specification
 class PersonServiceSpec extends Specification {
 
     def setup() {
+        //Guardo varias personas para poder hacer el test luego
+        for ( i in 1..20 ){
+            Person person = new Person(email: "bamboo${i}@gmail.com").save(flush: true, failOnError: true)
+            if ( (i % 2) == 0){
+                person.enabled = false
+                person.save(flush: true, failOnError: true)
+            }
+        }
     }
 
     def cleanup() {
@@ -42,5 +50,16 @@ class PersonServiceSpec extends Specification {
         success
         personDB.id == person.id
         personDB.firstName == "Mariano"
+    }
+
+    void "test list action"(){
+        def params = [max: 5]
+
+        when: "Cuando se busca con un maximo de 5"
+        def  (List<Person> listResult, Integer countResult) = service.list(params)
+
+        then: "El resultado de es el maximos para el listResult y el total para countResult"
+        listResult.size() == 5
+        countResult == 10
     }
 }

@@ -11,6 +11,13 @@ class PersonServiceIntegrationSpec extends IntegrationSpec {
     def personService
 
     def setup() {
+        for ( i in 1..20 ){
+            Person person = new Person(email: "bamboo${i}@gmail.com").save(flush: true, failOnError: true)
+            if ( (i % 2) == 0){
+                person.enabled = false
+                person.save(flush: true, failOnError: true)
+            }
+        }
     }
 
     def cleanup() {
@@ -45,5 +52,16 @@ class PersonServiceIntegrationSpec extends IntegrationSpec {
         success
         personDB.id == person.id
         personDB.firstName == "Mariano2"*/
+    }
+
+    void "test list action"(){
+        def params = [max: 5]
+
+        when: "Cuando se busca con un maximo de 5"
+        def  (List<Person> listResult, Integer countResult) = personService.list(params)
+
+        then: "El resultado de es el maximos para el listResult y el total para countResult"
+        listResult.size() == 5
+        countResult == 10
     }
 }
