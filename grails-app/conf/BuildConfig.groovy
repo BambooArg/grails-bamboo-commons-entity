@@ -43,7 +43,7 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        compile ":grails-bamboo-architecture:0.1.2"
+        compile ":grails-bamboo-architecture:0.1.2-SNAPSHOT"
 
         runtime ":hibernate4:4.3.5.5"
 
