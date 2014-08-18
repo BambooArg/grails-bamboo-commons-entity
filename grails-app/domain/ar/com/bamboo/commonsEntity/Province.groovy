@@ -7,6 +7,7 @@ class Province extends BaseEntity{
     String name
 
     static constraints = {
+        id bindable: true
         name blank: false
     }
 

@@ -8,6 +8,7 @@ class Department extends BaseEntity{
     Province province
 
     static constraints = {
+        id bindable: true
         name blank: false
     }
 
