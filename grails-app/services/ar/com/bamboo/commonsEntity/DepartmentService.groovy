@@ -5,8 +5,8 @@ import grails.gorm.DetachedCriteria
 
 class DepartmentService extends BaseService{
 
-    List<Department> listAllByProvince(Province province) {
-        def where = { enabled == true && province == province} as DetachedCriteria<Department>
+    List<Department> listAllByProvince(Province provinceArg) {
+        def where = { enabled == true && province.id == provinceArg.id} as DetachedCriteria<Department>
         return this.listAll(Department.class, where)
     }
 }
