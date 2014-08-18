@@ -23,7 +23,8 @@ class CityControllerSpec extends Specification {
         }
         controller.cityService = cityService.createMock()
 
-        when: "Cuando se busca los departamentos por provincia"
+        when: "Cuando se busca las ciudades por departamentos"
+        request.method = 'POST'
         controller.cityByDepartment(1)
         then: "El resultado es un JSON con una lista de optionCombo"
         response.json.success == true

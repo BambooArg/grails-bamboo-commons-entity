@@ -5,17 +5,19 @@ import grails.converters.JSON
 
 class CityController {
 
+    static allowedMethods = [cityByDepartment: "POST"]
+
     def cityService
 
     def cityByDepartment(Long idDepartment) {
         Department department = new Department(id: idDepartment)
         List<City> cities = cityService.listAllByDepartment(department)
-        List<OptionCombo> comboList = new ArrayList<OptionCombo>(cities.size())
+        def result = [success: true, content: new ArrayList<OptionCombo>(cities.size())]
+
         for (city in cities) {
-            comboList.add(new OptionCombo(value: city.id, label: city.name))
+            result.content.add([value: city.id, label: city.name])
         }
 
-        def result = [success: true, content: comboList]
         render result as JSON
     }
 }
