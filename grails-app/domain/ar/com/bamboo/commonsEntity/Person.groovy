@@ -24,17 +24,21 @@ class Person extends BaseEntity{
     }
 
     public String toString(){
-        String output = firstName
-        if (output){
-            output += " "
+        StringBuilder output = new StringBuilder()
+        if (firstName){
+            output.append(firstName)
         }
-        output += lastName
-
-        if (output){
-            output += " - "
+        if (lastName){
+            if (output.length() != 0){
+                output.append(lastName)
+            }
         }
 
-        output += email
+        if (email){
+            if (output.length() != 0){
+                output.append(email)
+            }
+        }
         return output
     }
 }
