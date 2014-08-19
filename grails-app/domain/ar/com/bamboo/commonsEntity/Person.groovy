@@ -30,14 +30,16 @@ class Person extends BaseEntity{
         }
         if (lastName){
             if (output.length() != 0){
-                output.append(lastName)
+                output.append(" ")
             }
+            output.append(lastName)
         }
 
         if (email){
             if (output.length() != 0){
-                output.append(email)
+                output.append(" - ")
             }
+            output.append(email)
         }
         return output
     }
