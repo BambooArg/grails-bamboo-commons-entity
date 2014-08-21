@@ -31,6 +31,8 @@ Para publicarlo se deje ejecutar
 grails publish-plugin --protocol=webdav
 ```
 
+Para ejecutar ambos comandos a la vez ejecutar publish.sh
+
 El repositorio default para la publicación es https://repository-orkoapp.forge.cloudbees.com/snapshot/
 
 ###**Atención**
