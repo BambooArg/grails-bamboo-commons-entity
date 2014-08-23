@@ -10,7 +10,8 @@ class CityController {
     def cityService
 
     def cityByDepartment(Long idDepartment) {
-        Department department = new Department(id: idDepartment)
+        Department department = new Department()
+        department.id = idDepartment
         List<City> cities = cityService.listAllByDepartment(department)
         def result = [success: true, content: new ArrayList<OptionCombo>(cities.size())]
 

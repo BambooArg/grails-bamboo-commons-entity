@@ -46,7 +46,9 @@ class GeographicHelperSpec extends Specification {
 
     void "test getDependentGeographicList con objeto que tiene cargada la provincia"() {
         given:
-        EntityGeographic entityGeographic = new EntityGeographic(province: new Province(id: 1))
+        Province province1 = new Province()
+        province1.id = 1
+        EntityGeographic entityGeographic = new EntityGeographic(province: province1)
         GeographicHelper geographicHelper = new GeographicHelper()
 
         def provinceService = mockFor(ProvinceService)
@@ -73,8 +75,11 @@ class GeographicHelperSpec extends Specification {
 
     void "test getDependentGeographicList con objeto que tiene cargada la provincia y el departamento"() {
         given:
-        EntityGeographic entityGeographic = new EntityGeographic(province: new Province(id: 1),
-                department: new Department(id: 1))
+        Province province1 = new Province()
+        province1.id = 1
+        Department department = new Department()
+        department.id = 1
+        EntityGeographic entityGeographic = new EntityGeographic(province: province1, department: department)
         GeographicHelper geographicHelper = new GeographicHelper()
 
         def provinceService = mockFor(ProvinceService)

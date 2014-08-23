@@ -10,7 +10,8 @@ class DepartmentController {
     def departmentService
 
     def departmentByProvince(Long idProvince) {
-        Province province = new Province(id: idProvince)
+        Province province = new Province()
+        province.id = idProvince
         List<Department> departmentList =  departmentService.listAllByProvince(province)
 
         def result = [ success: true, content: new ArrayList<OptionCombo>(departmentList.size()) ]
