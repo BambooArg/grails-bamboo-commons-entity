@@ -18,6 +18,10 @@ class Person extends BaseEntity{
         email blank: true, nullable: true, email: true
     }
 
+    static mapping = {
+        cache true
+    }
+
     @Override
     protected void executeMoreBeforeInsert() {
 
