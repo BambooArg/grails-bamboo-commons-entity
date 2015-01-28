@@ -39,10 +39,7 @@ class Person extends BaseEntity{
             output.append(lastName)
         }
 
-        if (email){
-            if (output.length() != 0){
-                output.append(" - ")
-            }
+        if (email && output.length() == 0){
             output.append(email)
         }
         return output
