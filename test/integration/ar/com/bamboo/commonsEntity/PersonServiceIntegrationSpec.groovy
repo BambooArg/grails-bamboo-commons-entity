@@ -1,5 +1,6 @@
 package ar.com.bamboo.commonsEntity
 
+import ar.com.bamboo.framework.persistence.PaginatedResult
 import grails.test.spock.IntegrationSpec
 import grails.transaction.Transactional
 
@@ -58,10 +59,11 @@ class PersonServiceIntegrationSpec extends IntegrationSpec {
         def params = [max: 5]
 
         when: "Cuando se busca con un maximo de 5"
-        def  (List<Person> listResult, Integer countResult) = personService.list(params)
+        PaginatedResult result = personService.list(params)
 
         then: "El resultado de es el maximos para el listResult y el total para countResult"
-        listResult.size() == 5
-        countResult == 10
+        result
+        result.result.size() == 5
+        result.totalRows == 10
     }
 }

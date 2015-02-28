@@ -1,5 +1,6 @@
 package ar.com.bamboo.commonsEntity
 
+import ar.com.bamboo.framework.persistence.PaginatedResult
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -56,10 +57,11 @@ class PersonServiceSpec extends Specification {
         def params = [max: 5]
 
         when: "Cuando se busca con un maximo de 5"
-        def  (List<Person> listResult, Integer countResult) = service.list(params)
+        PaginatedResult result = service.list(params)
 
         then: "El resultado de es el maximos para el listResult y el total para countResult"
-        listResult.size() == 5
-        countResult == 10
+        result
+        result.result.size() == 5
+        result.totalRows == 10
     }
 }
