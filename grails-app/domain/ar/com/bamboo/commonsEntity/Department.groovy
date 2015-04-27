@@ -12,6 +12,10 @@ class Department extends BaseEntity{
         name blank: false
     }
 
+    static mapping = {
+        cache usage: 'read-only'
+    }
+
     @Override
     protected void executeMoreBeforeInsert() {
 
