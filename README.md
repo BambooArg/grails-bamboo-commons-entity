@@ -36,7 +36,7 @@ Para ejecutar ambos comandos a la vez ejecutar publish.sh
 El repositorio default para la publicación es https://repository-orkoapp.forge.cloudbees.com/snapshot/
 
 ###**Atención**
-Tener en cuenta que se tiene que tener configurado en .grails/setting.groovy
+Tener en cuenta que se tiene que tener configurado en .grails/setting.groovy Desactualizado, hay que actualizaro
 ```groovy
 grails.project.repos.cloudbees.url = "dav:https://repository-orkoapp.forge.cloudbees.com/snapshot/"
 grails.project.repos.cloudbees.username = yourUsername
@@ -48,6 +48,8 @@ grails.project.repos.cloudbees.password = yourPass
 
 El proyecto usa travis-ci como entorno de integración continua. https://travis-ci.org/orkonano/grails-bamboo-commons-entity.
 Se ejecutan tantos los test unitarios como integrales, corriendo la base de datos de test en memoria.
+
+
 
 
 
