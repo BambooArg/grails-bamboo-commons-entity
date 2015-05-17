@@ -16,7 +16,6 @@ grails.project.fork = [
     console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256]
 ]
 
-grails.project.repos.default = "dropbox"
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -45,8 +44,8 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        compile ":grails-bamboo-architecture:0.1.3-SNAPSHOT"
-        compile ":grails-bamboo-commons:0.1.0-SNAPSHOT"
+        compile ":grails-bamboo-architecture:1.0.0"
+        compile ":grails-bamboo-commons:1.0.0"
 
         runtime ":hibernate4:4.3.5.5"
 
