@@ -34,7 +34,7 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
-        mavenRepo "http://repository-orkoapp.forge.cloudbees.com/snapshot/"
+        mavenRepo "http://nexus-bambooarg.rhcloud.com/nexus/content/groups/public/"
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
@@ -50,8 +50,7 @@ grails.project.dependency.resolution = {
 
         runtime ":hibernate4:4.3.5.5"
 
-        build(":release:3.0.1",
-              ":rest-client-builder:1.0.3") {
+        build(":release:3.1.1") {
             export = false
         }
     }
