@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/orkonano/grails-bamboo-commons-entity.svg?branch=master)](https://travis-ci.org/orkonano/grails-bamboo-commons-entity.svg)
+
 grails-bamboo-commons-entity
 ============================
 
