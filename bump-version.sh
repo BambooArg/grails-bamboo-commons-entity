@@ -35,10 +35,11 @@ if [ -f VERSION ]; then
     echo "" >> tmpfile
     cat CHANGES >> tmpfile
     mv tmpfile CHANGES
-    git add CHANGES VERSION
+    grails set-version $INPUT_STRING
+    git add .
     git commit -m "Version bump to $INPUT_STRING"
-    git tag -a -m "Tagging version $INPUT_STRING" "v$INPUT_STRING"
-    git push origin --tags
+    #git tag -a -m "Tagging version $INPUT_STRING" "v$INPUT_STRING"
+    #git push origin --tags
 else
     echo "Could not find a VERSION file"
     read -p "Do you want to create a version file and start from scratch? [y]" RESPONSE
@@ -53,10 +54,11 @@ else
         git log --pretty=format:" - %s" >> CHANGES
         echo "" >> CHANGES
         echo "" >> CHANGES
-        git add VERSION CHANGES
+        grails set-version $INPUT_STRING
+        git add .
         git commit -m "Added VERSION and CHANGES files, Version bump to v0.1.0"
-        git tag -a -m "Tagging version 0.1.0" "v0.1.0"
-        git push origin --tags
+        #git tag -a -m "Tagging version 0.1.0" "v0.1.0"
+        #git push origin --tags
     fi
 
 fi

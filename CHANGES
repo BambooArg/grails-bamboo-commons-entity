@@ -1,3 +1,9 @@
+Version 1.2.0:
+ - Se agrega en la entidad Person el fetch batch de 10
+ - Cambios en la config de travis
+ - Agrego en el readme el status del build en travis
+ - Merge branch 'realease-1.0.0'
+
 Version 1.0.0:
 
 
