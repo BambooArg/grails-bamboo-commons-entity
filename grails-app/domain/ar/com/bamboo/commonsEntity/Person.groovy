@@ -19,6 +19,7 @@ class Person extends BaseEntity{
     }
 
     static mapping = {
+        batchSize 10
         cache true
     }
 
