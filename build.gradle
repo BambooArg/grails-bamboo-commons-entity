@@ -17,7 +17,7 @@ plugins {
     id "com.jfrog.bintray" version "1.2"
 }
 
-version "2.0.0-SNAPSHOT"
+version "2.0.0"
 group "org.grails.plugins"
 
 apply plugin: 'maven-publish'
@@ -78,4 +78,30 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
+}
+
+//Publish
+def bambooRepositoryUsername = System.getenv('BAMBOO_REPOSITORY_USERNAME') ?: project.hasProperty('bambooRepositoryUsername') ? project.bambooRepositoryUsername : ''
+def bambooRepositoryPassword = System.getenv("BAMBOO_REPOSITORY_PASSWORD") ?: project.hasProperty('bambooRepositoryPassword') ? project.bambooRepositoryPassword : ''
+
+publishing {
+    repositories {
+        maven {
+            name "bambooRelease"
+            credentials {
+                username bambooRepositoryUsername
+                password bambooRepositoryPassword
+            }
+            url "http://nexus-bambooarg.rhcloud.com/nexus/content/repositories/releases/"
+        }
+
+        maven {
+            name "bambooSNAPSHOT"
+            credentials {
+                username bambooRepositoryUsername
+                password bambooRepositoryPassword
+            }
+            url "http://nexus-bambooarg.rhcloud.com/nexus/content/repositories/snapshots/"
+        }
+    }
 }

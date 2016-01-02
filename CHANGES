@@ -1,3 +1,6 @@
+Version 2.0.0:
+ - Migrate to Grails 3
+
 Version 1.2.0:
  - Se agrega en la entidad Person el fetch batch de 10
  - Cambios en la config de travis
