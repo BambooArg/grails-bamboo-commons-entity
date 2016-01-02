@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/orkonano/grails-bamboo-commons-entity.svg?branch=master)](https://travis-ci.org/orkonano/grails-bamboo-commons-entity.svg)
+[![Build Status](https://travis-ci.org/BambooArg/grails-bamboo-commons-entity.svg?branch=master)](https://travis-ci.org/BambooArg/grails-bamboo-commons-entity.svg)
 
 grails-bamboo-commons-entity
 ============================
@@ -15,29 +15,31 @@ compile ":grails-bamboo-commons-entity:0.1.0"
 
 ##Dependencias
 
-El proyecto depende de los siguientes plugins. Actualmente al agregar grails-bamboo-security al proyecto, **no** agrega al proyecto las dependencias.
+El proyecto depende de los siguientes plugins. Actualmente al agregar grails-bamboo-architecture al proyecto, **no** agrega al proyecto las dependencias.
 
 - grails-bamboo-architecture
+- grails-bamboo-commons
+
 
 #Build
 
 Para compilar el proyecto e intalarlo localmente se debe ejecutar
 
- ```grails
-grails maven-install
+ ```script
+gradle install
 ```
 
 Para publicar un release se debe ejecutar
 
-```grails
-grails publish-plugin
+```script
+gradle publishMavenPublicationToBambooReleaseRepository
 
 ```
 
 Para publicar un snapshot se debe ejecutar
 
-```grails
-grails publish-plugin --repository=bambooRepoSnapshot
+```script
+gradle publishMavenPublicationToBambooSNAPSHOTRepository
 
 ```
 
@@ -46,22 +48,23 @@ El repositorio default para la publicación es http://nexus-bambooarg.rhcloud.co
 
 ###**Atención**
 Tener en cuenta que se tiene que tener configurado en .grails/setting.groovy
-```groovy
-grails.project.repos.default = "bambooRepo"
-grails.project.repos.bambooRepo.url = "http://nexus-bambooarg.rhcloud.com/nexus/content/repositories/releases/"
-grails.project.repos.bambooRepo.type = "maven"
-grails.project.repos.bambooRepo.username = username (poner el username real)
-grails.project.repos.bambooRepo.password = password (poner el password real)
+```script
+BAMBOO_REPOSITORY_USERNAME
+BAMBOO_REPOSITORY_PASSWORD
 
-grails.project.repos.bambooRepoSnapshot.url = "http://nexus-bambooarg.rhcloud.com/nexus/content/repositories/snapshots/"
-grails.project.repos.bambooRepoSnapshot.type = "maven"
-grails.project.repos.bambooRepoSnapshot.username = username
-grails.project.repos.bambooRepoSnapshot.password = password
+```
+
+o las propiedades del proyecto
+```script
+bambooRepositoryUsername
+bambooRepositoryPassword
+
+```
 
 
 #Test
 
-El proyecto usa travis-ci como entorno de integración continua. https://travis-ci.org/orkonano/grails-bamboo-commons-entity.
+El proyecto usa travis-ci como entorno de integración continua. https://travis-ci.org/BambooArg/grails-bamboo-commons-entity.
 Se ejecutan tantos los test unitarios como integrales, corriendo la base de datos de test en memoria.
 
 
