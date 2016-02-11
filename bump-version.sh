@@ -35,7 +35,7 @@ if [ -f VERSION ]; then
     echo "" >> tmpfile
     cat CHANGES >> tmpfile
     mv tmpfile CHANGES
-    grails set-version $INPUT_STRING
+  #  grails set-version $INPUT_STRING
     git add .
     git commit -m "Version bump to $INPUT_STRING"
     #git tag -a -m "Tagging version $INPUT_STRING" "v$INPUT_STRING"
@@ -54,7 +54,7 @@ else
         git log --pretty=format:" - %s" >> CHANGES
         echo "" >> CHANGES
         echo "" >> CHANGES
-        grails set-version $INPUT_STRING
+   #     grails set-version $INPUT_STRING
         git add .
         git commit -m "Added VERSION and CHANGES files, Version bump to v0.1.0"
         #git tag -a -m "Tagging version 0.1.0" "v0.1.0"
