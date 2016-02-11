@@ -11,6 +11,8 @@ class GrailsBambooCommonsEntityGrailsPlugin {
         "grails-app/views/error.gsp"
     ]
 
+    def loadAfter = ['grails-bamboo-architecture', 'grails-bamboo-commons']
+
     // TODO Fill in these fields
     def title = "Grails Bamboo Commons Entity Plugin" // Headline display name of the plugin
     def author = "Mariano Kfuri"
