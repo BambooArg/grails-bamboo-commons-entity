@@ -2,7 +2,7 @@ package ar.com.bamboo.commonsEntity
 
 import ar.com.bamboo.framework.domains.BaseEntity
 
-class Department extends BaseEntity{
+class Department implements BaseEntity{
     private static final Integer ID_CAPITAL_FEDERAL = 1
 
     String name
@@ -14,11 +14,6 @@ class Department extends BaseEntity{
 
     static mapping = {
         cache usage: 'read-only'
-    }
-
-    @Override
-    protected void executeMoreBeforeInsert() {
-
     }
 
     boolean isCapitalFederal(){

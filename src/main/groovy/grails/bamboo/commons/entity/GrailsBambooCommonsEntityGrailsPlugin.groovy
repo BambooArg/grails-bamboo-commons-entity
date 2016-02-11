@@ -5,11 +5,13 @@ import ar.com.bamboo.commonsEntity.greographic.GeographicHelper
 class GrailsBambooCommonsEntityGrailsPlugin {
 
     // the version or versions of Grails the plugin is designed for
-    def grailsVersion = "3.0 > *"
+    def grailsVersion = "3.1.0 > *"
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
         "grails-app/views/error.gsp"
     ]
+
+    def loadAfter = ['grails-bamboo-architecture', 'grails-bamboo-commons']
 
     // TODO Fill in these fields
     def title = "Grails Bamboo Commons Entity Plugin" // Headline display name of the plugin
