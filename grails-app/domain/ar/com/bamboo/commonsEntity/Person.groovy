@@ -2,7 +2,7 @@ package ar.com.bamboo.commonsEntity
 
 import ar.com.bamboo.framework.domains.BaseEntity
 
-class Person extends BaseEntity{
+class Person implements BaseEntity{
 
     String firstName
     String lastName
@@ -21,11 +21,6 @@ class Person extends BaseEntity{
     static mapping = {
         batchSize 10
         cache true
-    }
-
-    @Override
-    protected void executeMoreBeforeInsert() {
-
     }
 
     public String toString(){
