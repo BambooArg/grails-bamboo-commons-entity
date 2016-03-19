@@ -1,8 +1,9 @@
 package grails.bamboo.commons.entity
 
 import ar.com.bamboo.commonsEntity.greographic.GeographicHelper
+import grails.plugins.Plugin
 
-class GrailsBambooCommonsEntityGrailsPlugin {
+class GrailsBambooCommonsEntityGrailsPlugin extends Plugin{
 
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "3.1.0 > *"
@@ -45,14 +46,15 @@ Plugin para poner las clases bases de bamboo
         // TODO Implement additions to web.xml (optional), this event occurs before
     }
 
-    def doWithSpring = {
+    Closure doWithSpring() {{->
 
         geographicHelper(GeographicHelper){
             provinceService = ref('provinceService')
             departmentService = ref('departmentService')
             cityService = ref('cityService')
         }
-    }
+        
+    }}
 
     def doWithDynamicMethods = { ctx ->
         // TODO Implement registering dynamic methods to classes (optional)
