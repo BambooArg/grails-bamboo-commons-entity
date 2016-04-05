@@ -1,5 +1,6 @@
 package ar.com.bamboo.commonsEntity
 
+import grails.buildtestdata.mixin.Build
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -9,12 +10,13 @@ import spock.lang.Specification
  */
 @TestFor(ProvinceService)
 @Mock(Province)
+@Build(Province)
 class ProvinceServiceSpec extends Specification {
 
 
     def setup() {
         (1..20).each {
-            Province p = new Province(name: "Buenos Aires ${it}").save(flush: true, failOnError: true)
+            Province p = Province.build(name: "Buenos Aires ${it}").save(flush: true, failOnError: true)
             if ((it % 2) == 0){
                 p.enabled = false
                 p.save(flush: true, failOnError: true)

@@ -1,5 +1,6 @@
 package ar.com.bamboo.commonsEntity
 
+import grails.buildtestdata.mixin.Build
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -9,20 +10,21 @@ import spock.lang.Specification
  */
 @TestFor(CityService)
 @Mock([Province, Department, City])
+@Build([Province, Department, City])
 class CityServiceSpec extends Specification {
 
     Department caba, matanza
 
     def setup() {
-        Province ba = new Province(name: "Buenos Aires").save(flush: true, failOnError: true)
-        caba = new Department(name: "caba", province: ba).save(flush: true, failOnError: true)
-        matanza = new Department(name: "matanza", province: ba).save(flush: true, failOnError: true)
+        Province ba = Province.build(name: "Buenos Aires").save(flush: true, failOnError: true)
+        caba = Department.build(name: "caba", province: ba).save(flush: true, failOnError: true)
+        matanza = Department.build(name: "matanza", province: ba).save(flush: true, failOnError: true)
         (1..20).each {
             City city = null
             if ((it % 2) == 0){
-                city = new City(name: "deparment ${it}", department: caba).save(flush: true, failOnError: true)
+                city = City.build(name: "deparment ${it}", department: caba).save(flush: true, failOnError: true)
             }else{
-                city = new City(name: "deparment ${it}", department: matanza).save(flush: true, failOnError: true)
+                city = City.build(name: "deparment ${it}", department: matanza).save(flush: true, failOnError: true)
             }
             if (city.id in [1L, 5L, 6L, 12L, 16L]){
                 city.enabled = false
