@@ -5,7 +5,7 @@
 grails-bamboo-commons-entity
 ============================
 
-El plugin estña destinado al manejo de todas las clases comunes entity que pueden servir para los proyectos de bamboo
+El plugin está destinado al manejo de todas las clases comunes entity que pueden servir para los proyectos de bamboo
 
 
 #Instalación
@@ -14,14 +14,6 @@ Agregar el plugin al proyecto
 ```groovy
 compile ":grails-bamboo-commons-entity:0.1.0"
 ```
-
-##Dependencias
-
-El proyecto depende de los siguientes plugins. Actualmente al agregar grails-bamboo-architecture al proyecto, **no** agrega al proyecto las dependencias.
-
-- grails-bamboo-architecture
-- grails-bamboo-commons
-
 
 #Build
 
