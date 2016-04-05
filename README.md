@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/BambooArg/grails-bamboo-commons-entity.svg?branch=master)](https://travis-ci.org/BambooArg/grails-bamboo-commons-entity.svg)
+[![Stories in Ready](https://badge.waffle.io/BambooArg/grails-bamboo-commons-entity.svg?label=ready&title=Ready)](http://waffle.io/BambooArg/grails-bamboo-commons-entity)
+[![Throughput Graph](https://graphs.waffle.io/BambooArg/grails-bamboo-commons-entity/throughput.svg)](https://waffle.io/BambooArg/grails-bamboo-commons-entity/metrics)
 
 grails-bamboo-commons-entity
 ============================
