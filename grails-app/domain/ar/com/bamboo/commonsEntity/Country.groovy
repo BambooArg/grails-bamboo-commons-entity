@@ -2,12 +2,12 @@ package ar.com.bamboo.commonsEntity
 
 import ar.com.bamboo.framework.domains.BaseEntity
 
-class Province implements BaseEntity{
+class Country implements BaseEntity{
 
     String name
-    Country country
+    String isoCode
 
     static constraints = {
+        isoCode nullable: true, blank: true
     }
-
 }

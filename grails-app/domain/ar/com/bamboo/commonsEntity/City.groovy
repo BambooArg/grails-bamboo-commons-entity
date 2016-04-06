@@ -8,7 +8,6 @@ class City implements BaseEntity{
     Department department
 
     static constraints = {
-        name blank: false
     }
 
 }

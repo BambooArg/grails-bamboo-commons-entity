@@ -1,5 +1,6 @@
 package ar.com.bamboo.commonsEntity
 
+import grails.buildtestdata.mixin.Build
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -9,19 +10,20 @@ import spock.lang.Specification
  */
 @TestFor(DepartmentService)
 @Mock([Province, Department])
+@Build([Province, Department])
 class DepartmentServiceSpec extends Specification {
 
     Province ba, cordoba
 
     def setup() {
-        ba = new Province(name: "Buenos Aires").save(flush: true, failOnError: true)
-        cordoba = new Province(name: "Cordoba").save(flush: true, failOnError: true)
+        ba = Province.build(name: "Buenos Aires").save(flush: true, failOnError: true)
+        cordoba = Province.build(name: "Cordoba").save(flush: true, failOnError: true)
         (1..20).each {
             Department d = null
             if ((it % 2) == 0){
-                d = new Department(name: "deparment ${it}", province: ba).save(flush: true, failOnError: true)
+                d = Department.build(name: "deparment ${it}", province: ba).save(flush: true, failOnError: true)
             }else{
-                d = new Department(name: "deparment ${it}", province: cordoba).save(flush: true, failOnError: true)
+                d = Department.build(name: "deparment ${it}", province: cordoba).save(flush: true, failOnError: true)
             }
             if (d.id in [1L, 5L, 6L, 12L, 16L]){
                 d.enabled = false

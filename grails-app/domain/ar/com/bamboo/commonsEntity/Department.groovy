@@ -9,7 +9,6 @@ class Department implements BaseEntity{
     Province province
 
     static constraints = {
-        name blank: false
     }
 
     static mapping = {
