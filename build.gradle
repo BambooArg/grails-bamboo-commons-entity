@@ -16,7 +16,7 @@ plugins {
 }
 
 ext {
-    grailsBambooCommonsEntityVersion = '2.0.2'
+    grailsBambooCommonsEntityVersion = '2.1.0'
     grailsVersion = project.grailsVersion
     gradleWrapperVersion = project.gradleWrapperVersion
 }
@@ -68,6 +68,7 @@ dependencies {
 
     testCompile "org.grails:grails-plugin-testing"
     testCompile "cglib:cglib-nodep:3.1"
+    testCompile "org.grails.plugins:build-test-data:3.0.0"
 
     testRuntime "org.grails.plugins:hibernate4"
 

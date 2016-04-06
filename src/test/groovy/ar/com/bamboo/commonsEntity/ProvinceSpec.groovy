@@ -1,5 +1,6 @@
 package ar.com.bamboo.commonsEntity
 
+import grails.buildtestdata.mixin.Build
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
@@ -7,6 +8,7 @@ import spock.lang.Specification
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
 @TestFor(Province)
+@Build(Province)
 class ProvinceSpec extends Specification {
 
 
@@ -24,6 +26,7 @@ class ProvinceSpec extends Specification {
         !province.validate()
         province.hasErrors()
         province.errors.getFieldError("name").code == 'nullable'
+        province.errors.getFieldError("country").code == 'nullable'
 
         when: "El parametro name está vacío, pero no null"
         province = new Province(name: "")
@@ -31,9 +34,10 @@ class ProvinceSpec extends Specification {
         !province.validate()
         province.hasErrors()
         province.errors.getFieldError("name").code == 'nullable'
+        province.errors.getFieldError("country").code == 'nullable'
 
         when: "Se ingresan los parámetros obligatorios para el save"
-        province = new Province(name: "Buenos Aires")
+        province = Province.build()
         then: "La validación pasa con éxito"
         province.validate()
         !province.hasErrors()

@@ -1,18 +1,16 @@
 package ar.com.bamboo.commonsEntity
 
 import grails.buildtestdata.mixin.Build
-import grails.test.mixin.Mock
-import grails.test.mixin.TestFor
-import spock.lang.Specification
+import grails.test.mixin.integration.Integration
+import grails.transaction.*
+import spock.lang.*
 
-/**
- * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
- */
-@TestFor(ProvinceService)
-@Mock(Province)
-@Build([Province, Country])
-class ProvinceServiceSpec extends Specification {
+@Integration
+@Rollback
+@Build([Country, Province])
+class ProvinceServiceIntegrationSpec extends Specification {
 
+    def provinceService
     Country countryA, countryB
 
     def setup() {
@@ -37,7 +35,7 @@ class ProvinceServiceSpec extends Specification {
     void "test listAll method"() {
 
         when: "Busco las provincias habilitadas"
-        def provinceList = service.listAll()
+        def provinceList = provinceService.listAll()
 
         then: "Sólo me trae las 10 habilitadas"
         provinceList
@@ -47,14 +45,14 @@ class ProvinceServiceSpec extends Specification {
     void "test listAllByCountry method"() {
 
         when: "Busco las provincias habilitadas por country A"
-        def provinceList = service.listAllByCountry(countryA)
+        def provinceList = provinceService.listAllByCountry(countryA)
 
         then: "Me trae 7 provincias"
         provinceList
         provinceList.size() == 7
 
         when: "Busco las provincias habilitadas por country B"
-        provinceList = service.listAllByCountry(countryB)
+        provinceList = provinceService.listAllByCountry(countryB)
 
         then: "Me trae 3 provincias"
         provinceList
