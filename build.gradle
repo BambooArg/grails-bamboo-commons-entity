@@ -16,7 +16,7 @@ plugins {
 }
 
 ext {
-    grailsBambooCommonsEntityVersion = '2.1.0'
+    grailsBambooCommonsEntityVersion = '2.1.1'
     grailsVersion = project.grailsVersion
     gradleWrapperVersion = project.gradleWrapperVersion
 }
