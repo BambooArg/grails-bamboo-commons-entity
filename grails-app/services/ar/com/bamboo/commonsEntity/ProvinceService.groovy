@@ -10,8 +10,8 @@ class ProvinceService extends BaseService{
         return this.listAll(Province.class, where)
     }
 
-    List<Province> listAllByCountry(Country country) {
-        def where = { enabled == true && country == country} as DetachedCriteria<Province>
-        return this.listAll(Province.class, where)
+    List<Province> listAllByCountry(Country countryArg) {
+        def where = { enabled == true && country.id == countryArg.id} as DetachedCriteria<Province>
+        return this.listAll(Province.class, where, [sort: "name"])
     }
 }
